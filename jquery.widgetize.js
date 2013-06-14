@@ -104,17 +104,17 @@
     $.fn.widgetize.defaults = {
         headerCls: "header-color-blue widget-header-small",
         components: [{
-            name: "refresh",
-            iconCls: "icon-refresh"
-        },{
-            name: "close",
-            iconCls: "icon-remove"
-        },{
             name: "settings",
             iconCls: "icon-cog"
         },{
+            name: "refresh",
+            iconCls: "icon-refresh"
+        },{
             name: "collapse",
             iconCls: "icon-chevron-down"
+        },{
+            name: "close",
+            iconCls: "icon-remove"
         }]
     };
 }( jQuery ));

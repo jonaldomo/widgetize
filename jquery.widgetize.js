@@ -1,12 +1,9 @@
 (function($) {
     $.fn.widgetize = function(options) {
-        var settings = $.extend({
-            color: "#556b2f",
-            backgroundColor: "white"
-        }, options );
+        var settings = $.extend($.fn.widgetize.defaults, options );
 
         $(this).html(' \
-            <div class="widget-header header-color-blue widget-header-small"> \
+            <div class="widget-header ' + settings.headerCls + '"> \
                 <h5 id="widget-title" class="lighter"></h5> \
                 <div class="widget-toolbar"> \
                     <a href="#" data-action="settings"> \
@@ -38,71 +35,78 @@
         });
 
         $(".widget-toolbar > a[data-action]").each(function () {
-            var f = $(this);
-            var h = f.data("action");
-            var e = f.closest(".widget-box");
-            if (h == "collapse") {
-                var d = e.find(".widget-body");
-                var b = f.find("[class*=icon-]").eq(0);
-                var a = b.attr("class").match(/icon\-(.*)\-(up|down)/);
-                var c = "icon-" + a[1] + "-down";
-                var g = "icon-" + a[1] + "-up";
+            var f = $(this),
+                h = f.data("action"),
+                e = f.closest(".widget-box"),
+                d, b, a, c, g,
+                i = false;
+
+            if (h === "collapse") {
+                d = e.find(".widget-body");
+                b = f.find("[class*=icon-]").eq(0);
+                a = b.attr("class").match(/icon\-(.*)\-(up|down)/);
+                c = "icon-" + a[1] + "-down";
+                g = "icon-" + a[1] + "-up";
                 d = d.wrapInner('<div class="widget-body-inner"></div>').find(":first-child").eq(0);
                 f.on("click", function (i) {
                     if (e.hasClass("collapsed")) {
                         if (b) {
-                            b.addClass(g).removeClass(c)
+                            b.addClass(g).removeClass(c);
                         }
                         e.removeClass("collapsed");
-                        d.slideDown(200)
+                        d.slideDown(200);
                     } else {
                         if (b) {
-                            b.addClass(c).removeClass(g)
+                            b.addClass(c).removeClass(g);
                         }
                         d.slideUp(300, function () {
-                            e.addClass("collapsed")
-                        })
+                            e.addClass("collapsed");
+                        });
                     }
-                    i.preventDefault()
+                    i.preventDefault();
                 });
                 if (e.hasClass("collapsed") && b) {
-                    b.addClass(c).removeClass(g)
+                    b.addClass(c).removeClass(g);
                 }
             } else {
-                if (h == "close") {
+                if (h === "close") {
                     f.on("click", function (i) {
                         e.hide(300, function () {
-                            e.remove()
+                            e.remove();
                         });
-                        i.preventDefault()
-                    })
+                        i.preventDefault();
+                    });
                 } else {
-                    if (h == "reload") {
+                    if (h === "reload") {
                         f.on("click", function (j) {
                             f.blur();
-                            var i = false;
+                            i = false;
                             if (!e.hasClass("position-relative")) {
                                 i = true;
-                                e.addClass("position-relative")
+                                e.addClass("position-relative");
                             }
                             e.append('<div class="widget-box-layer"><i class="icon-spinner icon-spin icon-2x white"></i></div>');
                             setTimeout(function () {
                                 e.find("> div:last-child").remove();
                                 if (i) {
-                                    e.removeClass("position-relative")
+                                    e.removeClass("position-relative");
                                 }
-                            }, parseInt(Math.random() * 1000 + 1000));
-                            j.preventDefault()
-                        })
+                            }, parseInt(Math.random() * 1000 + 1000, 10));
+                            j.preventDefault();
+                        });
                     } else {
-                        if (h == "settings") {
+                        if (h === "settings") {
                             f.on("click", function (i) {
-                                i.preventDefault()
-                            })
+                                i.preventDefault();
+                            });
                         }
                     }
                 }
             }
         });
-    });
+    };
+
+    $.fn.widgetize.defaults = {
+        headerCls: "header-color-blue widget-header-small"
+    };
 }( jQuery ));

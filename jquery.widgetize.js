@@ -1,32 +1,27 @@
 (function($) {
     $.fn.widgetize = function(options) {
-        var settings = $.extend($.fn.widgetize.defaults, options );
+        var settings = $.extend($.fn.widgetize.defaults, options ),
+            container, toolbar = '';
 
-        $(this).html(' \
+        $.each(settings.components, function(){
+            toolbar += ' \
+                <a href="#" data-action="' + this.name +'"> \
+                    <i class="' + this.iconCls +'"></i> \
+                </a>';
+        });
+        container = ' \
             <div class="widget-header ' + settings.headerCls + '"> \
                 <h5 id="widget-title" class="lighter"></h5> \
-                <div class="widget-toolbar"> \
-                    <a href="#" data-action="settings"> \
-                        <i class="icon-cog"></i> \
-                    </a> \
-                    <a href="#" data-action="reload"> \
-                        <i class="icon-refresh"></i> \
-                    </a> \
-                    <a href="#" data-action="collapse"> \
-                        <i class="icon-chevron-up"></i> \
-                    </a> \
-                    <a href="#" data-action="close"> \
-                        <i class="icon-remove"></i> \
-                    </a> \
-                </div> \
+                <div class="widget-toolbar"> ' + toolbar +
+                '</div> \
             </div> \
             <div class="widget-body"> \
                 <div class="widget-body-inner"> \
                     <div class="widget-main"> \
                     </div> \
                 </div> \
-            </div> \
-        ');
+            </div>';
+        $(this).html(container);
 
         $(this).each(function(){
             $(this).find('.widget-main').attr('id', $(this).attr('id'));
@@ -107,6 +102,19 @@
     };
 
     $.fn.widgetize.defaults = {
-        headerCls: "header-color-blue widget-header-small"
+        headerCls: "header-color-blue widget-header-small",
+        components: [{
+            name: "refresh",
+            iconCls: "icon-refresh"
+        },{
+            name: "close",
+            iconCls: "icon-remove"
+        },{
+            name: "settings",
+            iconCls: "icon-cog"
+        },{
+            name: "collapse",
+            iconCls: "icon-chevron-down"
+        }]
     };
 }( jQuery ));

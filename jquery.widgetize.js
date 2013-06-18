@@ -21,6 +21,7 @@
                     </div> \
                 </div> \
             </div>';
+        $(this).addClass(settings.mainCls);
         $(this).html(container);
 
         $(this).each(function(){
@@ -102,6 +103,7 @@
     };
 
     $.fn.widgetize.defaults = {
+        mainCls: "",
         headerCls: "header-color-blue widget-header-small",
         components: [{
             name: "settings",

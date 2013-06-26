@@ -109,9 +109,9 @@
             name: "settings",
             iconCls: "icon-cog"
         },{
-            name: "refresh",
-            iconCls: "icon-refresh"
-        },{
+        //     name: "refresh",
+        //     iconCls: "icon-refresh"
+        // },{
             name: "collapse",
             iconCls: "icon-chevron-down"
         },{

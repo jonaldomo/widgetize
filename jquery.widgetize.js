@@ -10,17 +10,19 @@
                 </a>';
         });
         container = ' \
-            <div class="widget-header ' + settings.headerCls + '"> \
-                <h5 id="widget-title" class="lighter"></h5> \
-                <div class="widget-toolbar"> ' + toolbar +
-                '</div> \
-            </div> \
-            <div class="widget-body"> \
-                <div class="widget-body-inner"> \
-                    <div class="widget-main"> \
+            <div class="widget-container"> \
+                <div class="widget-header ' + settings.headerCls + '"> \
+                    <h5 id="widget-title" class="lighter"></h5> \
+                    <div class="widget-toolbar"> ' + toolbar +
+                    '</div> \
+                </div> \
+                <div class="widget-body"> \
+                    <div class="widget-body-inner"> \
+                        <div class="widget-main"> \
+                        </div> \
                     </div> \
                 </div> \
-            </div>';
+            </div> ';
         $(this).addClass(settings.mainCls);
         $(this).html(container);
 

@@ -6,14 +6,18 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .widget-box {
     padding: 0;
+    margin: 3px 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    margin: 3px 0;
 }
 .widget-header {
-    position: relative;
-    min-height: 38px;
+    min-height: 38px;    
+    color: #669fc7;
+    border: 1px solid #CCC;
+    border-bottom: 1px solid #DDD;
+    padding-left: 12px;
+    text-align: right;
     background: #f7f7f7;
     background-color: #f8f8f8;
     background-image: -moz-linear-gradient(top, #fff, #eee);
@@ -23,11 +27,6 @@ h1,h2,h3,h4,h5,h6,p{
     background-image: linear-gradient(to bottom, #fff, #eee);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0);
-    color: #669fc7;
-    border: 1px solid #CCC;
-    border-bottom: 1px solid #DDD;
-    padding-left: 12px;
-    text-align: right;
 }
 .collapsed>.widget-header {
     border-bottom-width: 0;

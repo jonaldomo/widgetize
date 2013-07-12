@@ -114,9 +114,9 @@
         //     name: "refresh",
         //     iconCls: "icon-refresh"
         // },{
-            name: "collapse",
-            iconCls: "icon-chevron-down"
-        },{
+        //    name: "collapse",
+        //    iconCls: "icon-chevron-down"
+        //},{
             name: "close",
             iconCls: "icon-remove"
         }]

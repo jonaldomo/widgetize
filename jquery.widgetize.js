@@ -18,7 +18,7 @@
                 </div> \
                 <div class="widget-body"> \
                     <div class="widget-body-inner"> \
-                        <div class="widget-main"> \
+                        <div class="widget-main ' + settings.heightCls + '"> \
                         </div> \
                     </div> \
                 </div> \
@@ -69,10 +69,10 @@
             } else {
                 if (h === "close") {
                     f.on("click", function (i) {
-                        e.hide(300, function () {
-                            e.remove();
-                        });
-                        i.preventDefault();
+                        // e.hide(300, function () {
+                        //     e.remove();
+                        // });
+                        // i.preventDefault();
                     });
                 } else {
                     if (h === "reload") {
@@ -106,7 +106,8 @@
 
     $.fn.widgetize.defaults = {
         mainCls: "",
-        headerCls: "header-color-blue widget-header-small",
+        headerCls: "header-color-blue",
+        heightCls: 'h5',
         components: [{
             name: "settings",
             iconCls: "icon-cog"

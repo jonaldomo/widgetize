@@ -12,8 +12,9 @@ h1,h2,h3,h4,h5,h6,p{
     box-shadow: none;
 }
 .widget-header {
-    min-height: 38px;    
-    color: #669fc7;
+    min-height: 38px;
+    color: black;
+    font-weight: bold;
     border: 1px solid #CCC;
     border-bottom: 1px solid #DDD;
     padding-left: 12px;
@@ -232,6 +233,7 @@ h1,h2,h3,h4,h5,h6,p{
     background-color: #FFF;
 }
 .widget-main {
+    overflow-y: scroll !important;
     padding: 12px;
 }
 .collapsed .widget-main {

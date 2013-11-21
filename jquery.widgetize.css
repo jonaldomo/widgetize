@@ -6,7 +6,6 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .widget-box {
     padding: 0;
-    margin: 3px 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -233,8 +232,9 @@ h1,h2,h3,h4,h5,h6,p{
     background-color: #FFF;
 }
 .widget-main {
-    overflow-y: scroll !important;
     padding: 12px;
+    overflow: auto;
+    overflow-y: hidden;
 }
 .collapsed .widget-main {
     display: none;
@@ -458,9 +458,6 @@ h1,h2,h3,h4,h5,h6,p{
 .widget-box.transparent .widget-main {
     padding-left: 0;
     padding-right: 0;
-}
-.widget-body .table {
-    border-top: 1px solid #e5e5e5;
 }
 .widget-body .table thead:first-child tr {
     background: #FFF;

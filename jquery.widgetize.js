@@ -5,14 +5,14 @@
 
         $.each(settings.components, function(){
             toolbar += ' \
-                <a href="#" data-action="' + this.name +'"> \
+                <a href="#" data-action="' + this.name +'" title="' + this.display + '"> \
                     <i class="' + this.iconCls +'"></i> \
                 </a>';
         });
         container = ' \
             <div class="widget-container"> \
-                <div class="widget-header ' + settings.headerCls + '"> \
-                    <h5 id="widget-title" class="lighter"></h5> \
+                <div class="widget-header widget-header-small ' + settings.headerCls + '"> \
+                    <h6 id="widget-title" class="lighter"></h6> \
                     <div class="widget-toolbar"> ' + toolbar +
                     '</div> \
                 </div> \
@@ -30,6 +30,11 @@
             $(this).find('.widget-main').attr('id', $(this).attr('id'));
             $(this).attr('id', '');
             $(this).find('#widget-title').html($(this).attr('data-title'));
+        });
+
+        $('a[title]').tooltip({
+            'container': 'body',
+            'trigger': 'hover'
         });
 
         $(".widget-toolbar > a[data-action]").each(function () {
@@ -110,6 +115,7 @@
         heightCls: 'h5',
         components: [{
             name: "settings",
+            display: "Settings",
             iconCls: "icon-cog"
         },{
         //     name: "refresh",
@@ -119,6 +125,7 @@
         //    iconCls: "icon-chevron-down"
         //},{
             name: "close",
+            display: "Close",
             iconCls: "icon-remove"
         }]
     };
